@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EAD Aviação Civil</title>
+ <style>
+body {
+    margin: 0;
+    background-image: radial-gradient(#534ace, #111431);
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+  }
+.info{
+  color: #ffffff;
+    background-color: rgba(82, 63, 192, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  position: absolute;
+      top: 95%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    bottom: 0%;
+  
+    height: 10%;
+    text-align: center;
+    z-index: 998;
+    font-size: 120%;
+
+    padding: 5px 50px 100px 50px;
+    border-radius: 40px;
+}
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(82, 63, 192, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+  }
+  
+  .navbar-logo {
+    color: #333;
+    font-size: 20%;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .navbar-logo img {
+  height: 15vh; /* Adjust the height as needed */
+  width: auto; /* The width will adjust automatically to maintain the aspect ratio */
+}
+
+  .navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar-menu li {
+    margin-left: 20px;
+  }
+  
+  .navbar-menu li a {
+    color: #c2c2c2;
+    text-decoration: none;
+  }
+  
+  .navbar-menu li a:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  .footer {
+    color: #c2c2c2;
+    background-color: rgba(82, 63, 192, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+  }
+  
+
+
+.footer p {
+  margin: 0;
+}
+
+ </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
+
+
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          <img src="ead logo.png".png" alt="Logo">
+        </a>
+        <ul class="navbar-menu">
+          <li><a href="page1.html">Boing 737</a></li>
+          <li><a href="page2.html">Reverse-Thrust</a></li>
+          <li><a href="page3.html">Meridianos</a></li>
+          <li><a href="page4.html">Video</a></li>
+          <li><a href="https://www.youtube.com/shorts/04xc0LizUZ0" target="_blank">Fogo</a></li>
+          <li><a href="https://www.youtube.com/watch?v=bVXi1wGMQnA&ab_channel=GlitchVideo" target="_blank">360º</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2023 EAD Aviação Civil. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Initialize the scene, camera, and renderer
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      camera.position.set(0, 0, 50);
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+       alpha: true
+});
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+      scene.add(ambientLight);
+
+      // Create a Three.js directional light
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLight.position.set(1, 1, 1);
+      scene.add(directionalLight);
+
+      const light2 = new THREE.DirectionalLight(0xffffff, 0.5);
+light2.position.set(-1, -1, -1);
+scene.add(light2);
+
+// Set the target of the second light to face the center of the scene
+light2.target.position.set(0, 0, 0);
+scene.add(light2.target);
+   
+
+
+// Load the GLTF model using GLTFLoader
+const loader = new THREE.GLTFLoader();
+loader.load(
+  'ENGINE3 reverse thrust.gltf',
+  function (gltf) {
+    const model = gltf.scene;
+    model.scale.set(0.1, 0.1, 0.1);
+    model.position.set(5, -10, 0);
+    scene.add(model);
+
+    // Check if there are animations available
+    if (gltf.animations && gltf.animations.length) {
+      const mixer = new THREE.AnimationMixer(model);
+
+      // Create AnimationActions for each animation
+      gltf.animations.forEach((animation) => {
+        const action = mixer.clipAction(animation);
+        action.play(); // Play the animation
+      });
+
+      // Render loop
+      const animate = function () {
+        requestAnimationFrame(animate);
+
+        // Update the animation mixer on each frame
+        mixer.update(0.01); // You can adjust the time delta value as needed
+
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    }
+  },
+  undefined,
+  function (error) {
+    console.error(error);
+  }
+);
+
+
+      // Add orbital camera controls
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.03;
+      controls.screenSpacePanning = false;
+      controls.minDistance = 40;
+      controls.maxDistance = 100;
+      controls.autoRotate = true; 
+      controls.autoRotateSpeed = 2;
+
+      // Create a function to handle window resizing
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      window.addEventListener('resize', onWindowResize, false);
+
+      
+
+      // Render the scene
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+<div class="info"><p>
+  Fluxo de ar revertido,<br> provocando a frenagem do avião.
+
+</p></div>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EAD Aviação Civil</title>
+
+  <style>
+    body {
+      color: rgb(255, 255, 255);
+      height: 100vh;
+      margin: 0;
+      background-image: radial-gradient(#534ace, #111431);
+      background-attachment: fixed; 
+   
+      text-align: center;
+   
+    }
+
+    .content {
+     font-size: 120%;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      z-index: 999;
+      background-color: rgba(82, 63, 192, 0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      padding: 0 20px;
+    }
+
+    .navbar-logo {
+      color: #333;
+      font-size: 20%;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .navbar-logo img {
+      height: 15vh; /* Adjust the height as needed */
+      width: auto; /* The width will adjust automatically to maintain the aspect ratio */
+    }
+
+    .navbar-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar-menu li {
+      margin-left: 20px;
+    }
+
+    .navbar-menu li a {
+      color: #c2c2c2;
+      text-decoration: none;
+    }
+
+    .navbar-menu li a:hover {
+      color: rgb(255, 255, 255);
+    }
+
+    .content {
+      margin-top: 60px; /* Adjust this value to match the height of your navbar */
+    }
+
+    .footer {
+      color: #c2c2c2;
+      background-color: rgba(82, 63, 192, 0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    .center-video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+.inscrição {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+padding: 5%;
+
+}
+
+.inscrição button {
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.3); /* Set the background color with transparency */
+  border: none;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  opacity: 0.8; /* Adjust the opacity as needed */
+
+  transition: opacity 0.3s ease-in-out; /* Add a transition effect for smooth hover */
+}
+
+.inscrição button:hover {
+  background-color: rgba(255, 255, 255, 0.4); /* Set the background color with transparency */
+  opacity: 2; /* Increase opacity on hover */
+ 
+}
+
+
+.aprova {
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1%;
+  font-size: 300%;
+  background-color: rgba(82, 63, 192, 0.5);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cmte {
+ 
+  display: flex;
+  padding: 1%;
+  text-align: left;
+  margin: 2% 5% 2% 5%;
+  
+}
+
+.cmte text-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: left;
+  padding: 1%;
+  width: 50%;
+  margin: 10%;
+}
+
+.cmte image {
+  width: 10px; 
+  height: auto;
+
+}	
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">
+        <img src="ead logo.png" alt="Logo">
+      </a>
+      <ul class="navbar-menu">
+        <li><a href="page1.html">Boing 737</a></li>
+        <li><a href="page2.html">Reverse-Thrust</a></li>
+        <li><a href="page3.html">Meridianos</a></li>
+        <li><a href="page4.html">Video</a></li>
+        <li><a href="https://www.youtube.com/shorts/04xc0LizUZ0" target="_blank">Fogo</a></li>
+        <li><a href="https://www.youtube.com/watch?v=bVXi1wGMQnA&ab_channel=GlitchVideo" target="_blank">360º</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="content">
+    <!-- Your page content here -->
+    <div>
+      <br><br>
+      <p>INSCRIÇÕES ABERTAS para o curso de Piloto Privado <br>
+        mais completo do Brasil</p>
+        <br>
+    </div>
+
+
+    <iframe class="center-video" width="672" height="378" src="https://www.youtube.com/embed/BsbTZ9G-SAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+    <div class="inscrição">
+      <button>Fazer minha inscrição</button>
+    </div>
+
+    <div class="aprova">
+      <p>Escola que mais aprova alunos na ANAC</p>
+    </div>
+
+
+    <div class="cmte">
+      <div class="cmte text-container">
+        <div class="cmte title"> <p></p></div>
+        <div class="cmte text"> <p>Cmte. Leandro Carvalho. <br><br> É piloto de avião, rebocador e instrutor de planador.
+          Ele tem em seu currículo mais de 1.000 horas de voo, foi recordista brasileiro em permanência voando planador, recorde de 13:18min de voo em 2016.
+          Ele também é instrutor e CEO da EAD Aviação desde 2018.</p></div>
+      </div>
+    
+      <div class="cmte image"> <img src="lc.jpeg" alt="" style="height: 400px;" ></div>
+
+
+    </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2023 EAD Aviação Civil. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>

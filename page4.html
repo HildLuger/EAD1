@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EAD Aviação Civil</title>
+ <style>
+body {
+    margin: 0;
+    background-image: radial-gradient(#534ace, #111431);
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 20px;
+  }
+  
+  .navbar-logo {
+    color: #333;
+    font-size: 20%;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .navbar-logo img {
+  height: 15vh; /* Adjust the height as needed */
+  width: auto; /* The width will adjust automatically to maintain the aspect ratio */
+}
+
+  .navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .navbar-menu li {
+    margin-left: 20px;
+  }
+  
+  .navbar-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .navbar-menu li a:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  .footer {
+    color: #c2c2c2;
+    background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+  }
+  
+
+
+.footer p {
+  margin: 0;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+ </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/loaders/RGBELoader.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/r128/examples/js/pmrem/PMREMGenerator.js"></script>
+
+
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-logo">
+          <img src="ead logo.png".png" alt="Logo">
+        </a>
+        <ul class="navbar-menu">
+          <li><a href="page1.html">Boing 737</a></li>
+          <li><a href="page2.html">Reverse-Thrust</a></li>
+          <li><a href="page3.html">Meridianos</a></li>
+          <li><a href="page4.html">Video</a></li>
+          <li><a href="https://www.youtube.com/shorts/04xc0LizUZ0" target="_blank">Fogo</a></li>
+          <li><a href="https://www.youtube.com/watch?v=bVXi1wGMQnA&ab_channel=GlitchVideo" target="_blank">360º</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2023 EAD Aviação Civil. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <video id="bg-video" autoplay loop muted>
+      <source src="ead1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+  </body>
+</html>
